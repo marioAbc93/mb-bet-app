@@ -39,7 +39,7 @@ export default function EventContainer({ event }: EventContainerProps) {
                 key={selection.id}
                 color={
                   selections.events.some((item) => item.id === selection.id)
-                    ? "secondary"
+                    ? "success"
                     : "primary"
                 }
                 onClick={
