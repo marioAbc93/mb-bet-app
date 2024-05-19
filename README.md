@@ -1,4 +1,4 @@
-# MB Bet App
+# MB Bet App :heart: :dollar: :moneybag:
 
 <img src="./src//assets/screens/web-dark-1.png" alt="home">
 
@@ -56,18 +56,16 @@ As a user, i want to see my name in the header of the homepage along with my ava
 
 **Acceptance Criteria:**
 
-- The webApp must support switching between light and dark modes.
-- By default, the application mode (light/dark) will match the system's mode where the app is running.
-- The user's name must appear clearly in the header of the homepage.
-- There should be an avatar next to the user's name.
-- There should be a button next to the user's name that, when clicked, shows the selections made so far.
-- There should be an indicator next to the ticket button that shows how many events have been added to the ticket; if there are no events, the indicator should not be displayed.
+- The webApp must support switching between light and dark modes :heart_eyes:.
+- By default, the application mode (light/dark) will match the system's mode where the app is running :nerd_face:.
+- The user's name must appear clearly in the header of the homepage :monocle_face:.
+- There should be an avatar next to the user's name :ok_hand:.
+- There should be a button next to the user's name that, when clicked, shows the selections made so far :call_me_hand:.
+- There should be an indicator next to the ticket button that shows how many events have been added to the ticket; if there are no events, the indicator should not be displayed :fist_right: :fist_left:.
 
 #### 2. Selecting Events and Markets
 
-**As** a user,
-**I want** to see a list of sports events with various markets within each,
-**so that** I can select and bet on the events of my interest.
+As a user, i want to see a list of sports events with various markets within each, so that I can select and bet on the events of my interest.
 
 **Acceptance Criteria:**
 
@@ -79,9 +77,7 @@ As a user, i want to see my name in the header of the homepage along with my ava
 
 #### 3. Modifying Bets by Removing Markets
 
-**As** a user,
-**I want** to modify my bets by removing any market I consider necessary,
-**so that** I can adjust my selections according to my convenience.
+As a user, i want to modify my bets by removing any market I consider necessary, so that I can adjust my selections according to my convenience.
 
 **Acceptance Criteria:**
 
@@ -93,9 +89,7 @@ As a user, i want to see my name in the header of the homepage along with my ava
 
 #### 4. Placing Bets
 
-**As** a user,
-**I want** to place a bet by pressing the "bet" button,
-**so that** I can confirm my selections and participate in the bets.
+As a user, I want to place a bet by pressing the "bet" button, so that I can confirm my selections and participate in the bets.
 
 **Acceptance Criteria:**
 
@@ -186,7 +180,7 @@ Starts the application in development mode.
 
 Runs the tests.
 
-## Configuration
+## Configuration :triumph:
 
 Before running the project, make sure to create a `.env` file with the following environment variables, which correspond to the local API where we will have the events.
 
@@ -194,7 +188,7 @@ Before running the project, make sure to create a `.env` file with the following
 VITE_MAIN_API=http://localhost:3000
 ```
 
-## Components
+## Components :cowboy_hat_face:
 
 To meet the expected requirements, I have developed the following components.
 
@@ -213,11 +207,11 @@ components/
 └── ticket-component/
 ```
 
-### Reusable Components
+### Reusable Components :muscle:
 
 - **Button**: Custom button component.
 
-## Global State Management
+## Global State Management :eyes:
 
 I have managed the state in two ways:
 
@@ -225,15 +219,13 @@ I have managed the state in two ways:
 
 - **Components:** For component communication, I have used context. Here, I manage behaviors such as rendering the ticket when I want to display its contents and rendering notifications. This approach allows us to create state in one central place and modify it where needed without passing props between parent and child components.
 
-## Styling
+## Styling :nail_care:
 
 Regarding styles, I have used styled-components because it is a sophisticated and flexible way to manage styles in our React applications. Being written in a JavaScript file, it can receive props and have modifications that are expected by the user.
 
-## Testing
+## Testing :disguised_face:
 
-Here's the translation to English:
-
-"Tests were implemented with Jest on 100% presentational components that receive props and directly impact their rendering. The components with unit tests are:
+Tests were implemented with Jest on 100% presentational components that receive props and directly impact their rendering. The components with unit tests are:
 
 - Badge
 - Button
@@ -242,7 +234,7 @@ Here's the translation to English:
 
 Total test are done :sunglasses:
 
-## Future Improvements
+## Future Improvements :face_in_clouds:
 
 After this test, I would like to:
 
