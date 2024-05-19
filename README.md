@@ -127,7 +127,7 @@ As a user, i want to see my name in the header of the homepage along with my ava
 Instructions for installing dependencies and setting up the project.
 
 ```bash
-git clone https://github.com/user/project-name.git
+git clone https://github.com/marioAbc93/mb-bet-app.git
 cd project-name
 npm install
 ```
@@ -238,7 +238,7 @@ Here's the translation to English:
 - Badge
 - Button
 - Loader
-- Notification"
+- Notification
 
 Total test are done :sunglasses:
 
