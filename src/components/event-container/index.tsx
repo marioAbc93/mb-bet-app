@@ -1,4 +1,5 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import {
   EventType,
   MarketType,
@@ -6,24 +7,24 @@ import {
 } from "../../models/entities/event";
 import Button from "../custom-button";
 import { EventContainerDiv, MarketContainerDiv } from "./styled";
-import {
-  addEvent,
-  eventSelectionSelector,
-  removeItemFromSelection,
-} from "../../models/redux/selection";
+import { eventSelectionSelector } from "../../models/redux/selection";
+import Modal from "../modal";
 
 interface EventContainerProps {
   event: EventType;
 }
 
 export default function EventContainer({ event }: EventContainerProps) {
-  const dispatch = useDispatch();
   const selections = useSelector(eventSelectionSelector);
+  const [open, setOpen] = useState<boolean>(false);
+  const [activeSelection, setActiveSelection] = useState<SelectionType>();
+  const [name, setName] = useState<string | null>();
+  const [price, setPrice] = useState<number | null>();
   const handleSelect = (item: SelectionType) => {
-    dispatch(addEvent(item));
-  };
-  const deleteItem = (id: string) => {
-    dispatch(removeItemFromSelection(id));
+    setOpen(true);
+    setName(item.name);
+    setPrice(item.price);
+    setActiveSelection(item);
   };
 
   return (
@@ -34,27 +35,34 @@ export default function EventContainer({ event }: EventContainerProps) {
           <h5>{market.name}</h5>
           <MarketContainerDiv>
             {market.selections.map((selection: SelectionType) => (
-              <Button
-                orientation="column"
-                key={selection.id}
-                color={
-                  selections.events.some((item) => item.id === selection.id)
-                    ? "success"
-                    : "primary"
-                }
-                onClick={
-                  selections.events.some((item) => item.id === selection.id)
-                    ? () => deleteItem(selection.id)
-                    : () => handleSelect(selection)
-                }
-                description={selection.name}
-                value={selection.price}
-                isBet={true}
-              />
+              <>
+                <Button
+                  orientation="column"
+                  key={selection.id}
+                  color={
+                    selections.events.some((item) => item.id === selection.id)
+                      ? "success"
+                      : "primary"
+                  }
+                  onClick={() => handleSelect(selection)}
+                  description={selection.name}
+                  value={selection.price}
+                  isBet={true}
+                />
+              </>
             ))}
           </MarketContainerDiv>
         </div>
       ))}
+      {name && price && activeSelection ? (
+        <Modal
+          name={name}
+          price={price}
+          open={open}
+          setOpen={setOpen}
+          selection={activeSelection}
+        />
+      ) : null}
     </EventContainerDiv>
   );
 }
