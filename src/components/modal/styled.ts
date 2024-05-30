@@ -16,6 +16,16 @@ export const ModalContainer = styled.div<{ open: boolean }>`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 `;
 
+export const ModalContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+  margin: 10px;
+  padding: 5px;
+`;
+
 export const Row = styled.div`
   display: flex;
   justify-content: space-between;

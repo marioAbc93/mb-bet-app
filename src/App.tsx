@@ -7,6 +7,7 @@ import { NotificationProvider } from "./models/context/notificationContext.tsx";
 import { TicketProvider } from "./models/context/ticketContext.tsx";
 import { Provider } from "react-redux";
 import { store } from "./models/redux/store.ts";
+import { ModalProvider } from "./models/context/modalContext.tsx";
 function App() {
   const [theme, setTheme] = useState<Theme>({
     themeMode: window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -22,9 +23,11 @@ function App() {
     <Provider store={store}>
       <NotificationProvider>
         <TicketProvider>
-          <ThemeProvider theme={Themes[theme.themeMode]}>
-            <AppContainer theme={theme} setTheme={handleSetTheme} />
-          </ThemeProvider>
+          <ModalProvider>
+            <ThemeProvider theme={Themes[theme.themeMode]}>
+              <AppContainer theme={theme} setTheme={handleSetTheme} />
+            </ThemeProvider>
+          </ModalProvider>
         </TicketProvider>
       </NotificationProvider>
     </Provider>

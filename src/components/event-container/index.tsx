@@ -9,23 +9,14 @@ import Button from "../custom-button";
 import { EventContainerDiv, MarketContainerDiv } from "./styled";
 import { eventSelectionSelector } from "../../models/redux/selection";
 import Modal from "../modal";
-
+import { useModal } from "../../models/context/useModal";
 interface EventContainerProps {
   event: EventType;
 }
 
 export default function EventContainer({ event }: EventContainerProps) {
   const selections = useSelector(eventSelectionSelector);
-  const [open, setOpen] = useState<boolean>(false);
-  const [activeSelection, setActiveSelection] = useState<SelectionType>();
-  const [name, setName] = useState<string | null>();
-  const [price, setPrice] = useState<number | null>();
-  const handleSelect = (item: SelectionType) => {
-    setOpen(true);
-    setName(item.name);
-    setPrice(item.price);
-    setActiveSelection(item);
-  };
+  const { handleSelect } = useModal();
 
   return (
     <EventContainerDiv>
@@ -54,15 +45,7 @@ export default function EventContainer({ event }: EventContainerProps) {
           </MarketContainerDiv>
         </div>
       ))}
-      {name && price && activeSelection ? (
-        <Modal
-          name={name}
-          price={price}
-          open={open}
-          setOpen={setOpen}
-          selection={activeSelection}
-        />
-      ) : null}
+      <Modal />
     </EventContainerDiv>
   );
 }
