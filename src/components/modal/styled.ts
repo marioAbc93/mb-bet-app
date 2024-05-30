@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 export const ModalContainer = styled.div<{ open: boolean }>`
   position: absolute;
-  top: 80px;
-  max-width: 700px;
   display: ${({ open }) => (open ? "flex" : "none")};
   background: ${({ theme }) => theme.contentColor};
   color: ${({ theme }) => theme.color};
@@ -14,6 +12,11 @@ export const ModalContainer = styled.div<{ open: boolean }>`
   justify-content: center;
   z-index: 10;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  top: 80px;
+  max-width: 700px;
+  margin: auto;
+  padding: 10px;
+  width: 70%;
 `;
 
 export const ModalContent = styled.div`
