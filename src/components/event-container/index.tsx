@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useSelector } from "react-redux";
 import {
   EventType,
@@ -26,21 +25,19 @@ export default function EventContainer({ event }: EventContainerProps) {
           <h5>{market.name}</h5>
           <MarketContainerDiv>
             {market.selections.map((selection: SelectionType) => (
-              <>
-                <Button
-                  orientation="column"
-                  key={selection.id}
-                  color={
-                    selections.events.some((item) => item.id === selection.id)
-                      ? "success"
-                      : "primary"
-                  }
-                  onClick={() => handleSelect(selection)}
-                  description={selection.name}
-                  value={selection.price}
-                  isBet={true}
-                />
-              </>
+              <Button
+                orientation="column"
+                key={selection.id}
+                color={
+                  selections.events.some((item) => item.id === selection.id)
+                    ? "success"
+                    : "primary"
+                }
+                onClick={() => handleSelect(selection)}
+                description={selection.name}
+                value={selection.price}
+                isBet={true}
+              />
             ))}
           </MarketContainerDiv>
         </div>
